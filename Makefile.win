@@ -1,0 +1,37 @@
+# Project: GaluhEmpire
+# Makefile created by Embarcadero Dev-C++ 6.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o DinamicNonBinaryTree.o Help.o Welcome.o
+LINKOBJ  = main.o DinamicNonBinaryTree.o Help.o Welcome.o
+LIBS     = -L"D:/DevC++/Dev-Cpp/TDM-GCC-64/lib" -L"D:/DevC++/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/DevC++/Dev-Cpp/TDM-GCC-64/include" -I"D:/DevC++/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"D:/DevC++/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
+CXXINCS  = -I"D:/DevC++/Dev-Cpp/TDM-GCC-64/include" -I"D:/DevC++/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"D:/DevC++/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"D:/DevC++/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
+BIN      = GaluhEmpire.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+DEL      = D:\DevC++\Dev-Cpp\DevCpp.exe INTERNAL_DEL
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${DEL} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+DinamicNonBinaryTree.o: DinamicNonBinaryTree.cpp
+	$(CPP) -c DinamicNonBinaryTree.cpp -o DinamicNonBinaryTree.o $(CXXFLAGS)
+
+Help.o: Help.cpp
+	$(CPP) -c Help.cpp -o Help.o $(CXXFLAGS)
+
+Welcome.o: Welcome.cpp
+	$(CPP) -c Welcome.cpp -o Welcome.o $(CXXFLAGS)
