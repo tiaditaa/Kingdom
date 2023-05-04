@@ -18,7 +18,6 @@
 #define parent(P) (P)->parent
 #define jenis_kelamin(P) (P)->jenis_kelamin
 #define usia(P) (P)->usia
-#define religion(p) (p)->religion
 
 
 #define info(P) (P)->info
@@ -30,7 +29,6 @@ typedef struct TnbTreeNode *nbAddr;
 typedef struct TnbTreeNode{
 	nbType nama;
 	char jenis_kelamin;
-    nbType religion;
 	int usia;
 	nbAddr fs;
 	nbAddr nb;
