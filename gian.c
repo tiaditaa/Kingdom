@@ -19,7 +19,7 @@ void InsertSilsilah(nbAddr *tr)
 	nbAddr TNode = NULL, temp = NULL, parentTem = NULL;
 	char jenis_kelamin;
 	int usia;
-	nbType Nama, parent, Agama;
+	nbType Nama, parent;
 
 	if (isSilsilahEmpty(*tr))
 	{
@@ -79,7 +79,7 @@ void InsertSilsilah(nbAddr *tr)
 			printf("usia              : ");
 			fflush(stdin);
 			scanf("%d", &usia);
-			if (usia <= 11 || usia >= 100)
+			if (usia <= 1 || usia >= 100)
 			{
 				printf("usia tidak boleh kurang dari 1 dan lebih dari 100");
 				getch();
@@ -268,19 +268,5 @@ void urutanPewaris(nbAddr tr)
 			printf("Belum ada pewaris\n");
 		}
 	}
-}
-
-int nbDepth(nbAddr root)
-{
-	int y,z;
-
-	if(root==NULL)
-		return -1;
-	y=nbDepth(root->fs);
-	z=nbDepth(root->nb);
-	if (y > z)
-		return (y+1);
-	else
-		return (z+1);
 }
 

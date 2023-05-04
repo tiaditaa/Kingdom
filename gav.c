@@ -158,7 +158,7 @@ void opsiDeleteAnggotaKerajaan(nbAddr treeSilsilahTemp, TreeSilsilah treeTemp){
 		break;
 		case 2:
 		int i;
-		for(i=0;i<=nbDepth(treeSilsilahTemp);i++)
+//		for(i=0;i<=nbDepth(treeSilsilahTemp);i++)
 		{
 			nbLevelOrder(treeSilsilahTemp,1,i);
 		}
