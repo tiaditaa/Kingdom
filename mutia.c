@@ -151,7 +151,7 @@ void nbDelete2(nbAddr *pDel, TreeSilsilah *pTree){
 void menuHitungAnak(nbAddr treeSilsilahTemp){
 	nbType parentTempInput;
 	int src;
-//	printSilsilah(Tree.root, str);
+	printSilsilah;
 	printf("Masukkan nama parent : ");
 	fflush(stdin);
 	gets(parentTempInput);

@@ -11,17 +11,17 @@ int main()
 	char str[] = "\t";
 	
 	// add data ke node secara statis 
-	nbCreate(&Tree);
-	nbInsert(&Tree, NULL, "root", 'P', 80); // nb insert ini dinyatakan sebagai root
-	nbInsert(&Tree, nbSearch(Tree.root, "root"), "Charles", 'L', 63); // nb insert ini dinyatakan sebagai Raja
-	nbInsert(&Tree, nbSearch(Tree.root, "Charles"), "Anne", 'P', 47); 
-	nbInsert(&Tree, nbSearch(Tree.root, "Charles"), "William", 'L', 46);
-	nbInsert(&Tree, nbSearch(Tree.root, "root"), "George", 'L', 61);
-	nbInsert(&Tree, nbSearch(Tree.root, "George"), "Charlotte", 'P', 45);
-	nbInsert(&Tree, nbSearch(Tree.root, "root"), "Louis", 'L', 51);
-	nbInsert(&Tree, nbSearch(Tree.root, "root"), "Harry", 'L', 51);
-	nbInsert(&Tree, nbSearch(Tree.root, "George"), "Beatrice", 'p', 29);
-	nbInsert(&Tree, nbSearch(Tree.root, "George"), "Eugenie", 'P', 28);
+	createNode(&Tree);
+	insertNode(&Tree, NULL, "root", 'P', 80); // nb insert ini dinyatakan sebagai root
+	insertNode(&Tree, nbSearch(Tree.root, "root"), "Charles", 'L', 63); // nb insert ini dinyatakan sebagai Raja
+	insertNode(&Tree, nbSearch(Tree.root, "Charles"), "Anne", 'P', 47); 
+	insertNode(&Tree, nbSearch(Tree.root, "Charles"), "Williawati", 'P', 46);
+	insertNode(&Tree, nbSearch(Tree.root, "Charles"), "George", 'L', 20);
+//	insertNode(&Tree, nbSearch(Tree.root, "George"), "Charlotte", 'P', 45);
+//	insertNode(&Tree, nbSearch(Tree.root, "root"), "Louis", 'L', 51);
+//	insertNode(&Tree, nbSearch(Tree.root, "root"), "Harry", 'L', 51);
+//	insertNode(&Tree, nbSearch(Tree.root, "George"), "Beatrice", 'p', 29);
+//	insertNode(&Tree, nbSearch(Tree.root, "George"), "Eugenie", 'P', 28);
 
 	for (;;)
 	{

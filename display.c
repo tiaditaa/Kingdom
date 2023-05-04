@@ -6,8 +6,8 @@ void aturanDisplay(){
 	FILE *fp;
 	char line;
 	int i = 0;
-	// open file in directory assets
-	fp = fopen("assets/aturanKerajaan.txt", "r");
+
+	fp = fopen("aturanKerajaan.txt", "r");
 	if (fp == NULL)
 	{
 		printf("Error opening file!\n");

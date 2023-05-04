@@ -9,9 +9,9 @@ nbAddr Search(nbAddr tr,nbType SQ); //untuk mencari node tertentu
 void printSilsilah(nbAddr tr, char tab[]); //untuk menampilkan silsilah
 void urutanPewaris(nbAddr tr); //untuk menampilkan urutan pewaris
 void LihatIdentitas(nbAddr tr,nbType data); //untuk menampilkan identitas lengkap dari nama yang dicari
-void nbInsert(TreeSilsilah *tRoot, nbAddr parent, nbType nama_param, char jenis_kelamin_param, int usia_param); // untuk menambahkan node baru
+void insertNode(TreeSilsilah *tRoot, nbAddr parent, nbType nama_param, char jenis_kelamin_param, int usia_param); // untuk menambahkan node baru
 nbAddr nbSearch(nbAddr root, nbType nameParam); //untuk mencari node yang dicari berdasarkan nama yang dicari 
-void nbCreate(TreeSilsilah *x); // membuat create anggota kerajaan silsilah 
+void createNode(TreeSilsilah *x); // membuat create anggota kerajaan silsilah 
 void nbDelete(nbAddr *pDel, TreeSilsilah *pTree);// Delete sebagai saudara dari raja
 void nbDelete2(nbAddr *pDel, TreeSilsilah *pTree);//Delete Raja dan Upgrade ke Raja
 void nbUpgrade(nbAddr *root); // mengupgrade node

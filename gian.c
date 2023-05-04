@@ -79,7 +79,7 @@ void InsertSilsilah(nbAddr *tr)
 			printf("usia              : ");
 			fflush(stdin);
 			scanf("%d", &usia);
-			if (usia <= 1 || usia >= 100)
+			if (usia <= 11 || usia >= 100)
 			{
 				printf("usia tidak boleh kurang dari 1 dan lebih dari 100");
 				getch();
@@ -94,9 +94,9 @@ void InsertSilsilah(nbAddr *tr)
 			}
 		} while (jenis_kelamin_valid);
 
-		if (usia <= 11)
+		if (usia <= 1)
 		{
-			printf("usia tidak boleh lebih kecil dari 11");
+			printf("usia tidak boleh lebih kecil dari 1");
 		}
 		do
 		{
@@ -131,7 +131,7 @@ void InsertSilsilah(nbAddr *tr)
 		}
 		else
 		{
-			nbInsert(&tRoot, nbSearch(*tr, parent), Nama, jenis_kelamin, usia); 
+			insertNode(&tRoot, nbSearch(*tr, parent), Nama, jenis_kelamin, usia); 
 			printf("Anggota dengan nama %s berhasil ditambahkan dengan parent %s", Nama, parent);
 		}
 	}
@@ -237,11 +237,11 @@ void urutanPewaris(nbAddr tr)
 				{
 					tr = fs(tr);
 					if(jenis_kelamin(tr) == 'L' && i == 1){
-						printf("%d. %s   -  RAJA ", i, nama(tr));
+						printf("\n%d. %s   -  RAJA \n", i, nama(tr));
 					} else if(jenis_kelamin(tr) == 'P' && i == 1){
-						printf("%d. %s   -  RATU ", i, nama(tr));
+						printf("\n%d. %s   -  RATU \n", i, nama(tr));
 					} else {
-						printf("%d. %s", i, nama(tr));
+						printf("%d. %s\n", i, nama(tr));
 					}
 					i++;
 				}

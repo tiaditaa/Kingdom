@@ -2,7 +2,7 @@
 #include "Body.h"
 #include "display.h"
 
-void nbCreate(TreeSilsilah *x)
+void createNode(TreeSilsilah *x)
 {
 	(*x).root = NULL;
 }
@@ -24,7 +24,7 @@ nbAddr nbCNode(nbType nama, char jenis_kelamin, int usia)
 	return newNode;
 }
 
-void nbInsert(TreeSilsilah *tRoot, nbAddr parent, nbType nama_param, char jenis_kelamin_param, int usia_param)
+void insertNode(TreeSilsilah *tRoot, nbAddr parent, nbType nama_param, char jenis_kelamin_param, int usia_param)
 { // Insert New Node baru dengan keadaan tertentu
 	nbAddr newNode, temp;
 	newNode = nbCNode(nama_param, jenis_kelamin_param, usia_param);
@@ -136,10 +136,10 @@ void opsiDeleteAnggotaKerajaan(nbAddr treeSilsilahTemp, TreeSilsilah treeTemp){
 	nbType namaNode;
 	nbAddr srcNode;
 
-	printf("Pilih Opsi Tahta");
-	printf("1. Turunkan Tahta\n"); // delete raja
-	printf("2. Bunuh "); // delete anak
-	printf("Pilih no : ");
+	printf("Pilih Opsi Tahta\n");
+	printf("\t1. Turunkan Tahta \n"); // delete raja
+	printf("\t2. Bunuh Anggota \n"); // delete anak
+	printf("\tPilih no : ");
 	scanf("%d", &bunuh);
 	switch (bunuh)
 	{
