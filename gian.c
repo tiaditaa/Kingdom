@@ -79,9 +79,9 @@ void InsertSilsilah(nbAddr *tr)
 			printf("usia              : ");
 			fflush(stdin);
 			scanf("%d", &usia);
-			if (usia <= 11 || usia >= 100)
+			if (usia <= 1 || usia >= 100)
 			{
-				printf("usia tidak boleh kurang dari 11 dan lebih dari 100");
+				printf("usia tidak boleh kurang dari 1 dan lebih dari 100");
 				getch();
 				jenis_kelamin_valid = true;
 				printf("usia          : ");
