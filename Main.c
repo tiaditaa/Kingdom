@@ -15,9 +15,10 @@ int main()
 	insertNode(&Tree, NULL, "root", 'P', 80); // nb insert ini dinyatakan sebagai root
 	insertNode(&Tree, nbSearch(Tree.root, "root"), "Charles", 'L', 63); // nb insert ini dinyatakan sebagai Raja
 	insertNode(&Tree, nbSearch(Tree.root, "Charles"), "Anne", 'P', 47); 
+//	insertNode(&Tree, nbSearch(Tree.root, "Charles"), "Raja", 'L', 49); 
 	insertNode(&Tree, nbSearch(Tree.root, "Charles"), "Williawati", 'P', 46);
 	insertNode(&Tree, nbSearch(Tree.root, "Charles"), "George", 'L', 20);
-//	insertNode(&Tree, nbSearch(Tree.root, "George"), "Charlotte", 'P', 45);
+	insertNode(&Tree, nbSearch(Tree.root, "Williawati"), "Charlotte", 'P', 45);
 //	insertNode(&Tree, nbSearch(Tree.root, "root"), "Louis", 'L', 51);
 //	insertNode(&Tree, nbSearch(Tree.root, "root"), "Harry", 'L', 51);
 //	insertNode(&Tree, nbSearch(Tree.root, "George"), "Beatrice", 'p', 29);

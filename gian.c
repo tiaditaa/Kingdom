@@ -174,9 +174,9 @@ void detailAnggota(nbAddr tr)
 					printf("Parent            : %s\n", nama(nm));
 				} else if(!strcmp(nama(tr->fs), namaTemp)){
 					if(jenis_kelamin(tr->fs) == 'L'){
-						printf("Status            : RAJA \n");
+						printf("\nStatus            : RAJA \n");
 					} else if(jenis_kelamin(tr->fs) == 'P'){
-						printf("Status            : RATU \n");
+						printf("\nStatus            : RATU \n");
 					}
 				} else {
 					printf("\n%s adalah saudara dari raja ", namaTemp);
@@ -241,7 +241,7 @@ void urutanPewaris(nbAddr tr)
 					} else if(jenis_kelamin(tr) == 'P' && i == 1){
 						printf("\n%d. %s   -  RATU \n", i, nama(tr));
 					} else {
-						printf("%d. %s\n", i, nama(tr));
+						printf("\n%d. %s\n", i, nama(tr));
 					}
 					i++;
 				}

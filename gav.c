@@ -162,7 +162,7 @@ void opsiDeleteAnggotaKerajaan(nbAddr treeSilsilahTemp, TreeSilsilah treeTemp){
 		{
 			nbLevelOrder(treeSilsilahTemp,1,i);
 		}
-		printf("Masukkan Saudara Raja     : ");
+		printf("Masukkan Nama   : ");
 		scanf("%s", &namaNode);
 		if ((srcNode = nbSearch(treeSilsilahTemp, namaNode)) != NULL)
 		{
