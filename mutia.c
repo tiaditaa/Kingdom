@@ -3,12 +3,6 @@
 #include "display.h"
 
 
-//int isTreeEmpty(nbAddr tr)
-//{
-//	return tr == NULL;
-//}
-// 
-
 nbAddr nbSearch(nbAddr root, nbType nameParam)
 {
 	nbAddr nSrc;
@@ -151,7 +145,7 @@ void nbDelete2(nbAddr *pDel, TreeSilsilah *pTree){
 void menuHitungAnak(nbAddr treeSilsilahTemp){
 	nbType parentTempInput;
 	int src;
-	printSilsilah;
+//	printSilsilah(Tree.root, str);
 	printf("Masukkan nama parent : ");
 	fflush(stdin);
 	gets(parentTempInput);
