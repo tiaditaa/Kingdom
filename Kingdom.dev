@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=1
 CompilerSettings=0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0
-UnitCount=7
+UnitCount=8
 
 [VersionInfo]
 Major=1
@@ -51,16 +51,6 @@ AutoIncBuildNr=0
 SyncProduct=1
 
 [Unit1]
-FileName=Body.cpp
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit2]
 FileName=Body.h
 CompileCpp=1
 Folder=
@@ -70,7 +60,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit3]
+[Unit2]
 FileName=display.h
 CompileCpp=1
 Folder=
@@ -80,17 +70,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit4]
-FileName=display.cpp
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit5]
+[Unit3]
 FileName=header.h
 CompileCpp=1
 Folder=
@@ -100,8 +80,18 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
+[Unit5]
+FileName=gav.c
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
 [Unit6]
-FileName=Main.cpp
+FileName=gian.c
 CompileCpp=1
 Folder=
 Compile=1
@@ -111,7 +101,27 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit7]
-FileName=gian.cpp
+FileName=Main.c
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit4]
+FileName=display.c
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit8]
+FileName=mutia.c
 CompileCpp=1
 Folder=
 Compile=1
