@@ -135,15 +135,18 @@ void opsiDeleteAnggotaKerajaan(nbAddr treeSilsilahTemp, TreeSilsilah treeTemp){
 	int bunuh;
 	nbType namaNode;
 	nbAddr srcNode;
+	
 
 	printf("Pilih Opsi Tahta\n");
 	printf("\t1. Turunkan Tahta \n"); // delete raja
 	printf("\t2. Bunuh Anggota \n"); // delete anak
 	printf("\tPilih no : ");
+	printSilsilah;
 	scanf("%d", &bunuh);
 	switch (bunuh)
 	{
 	case 1:
+		printSilsilah;
 		printf("Masukkan nama : ");
 		scanf("%s", &namaNode);
 		if ((srcNode = nbSearch(treeSilsilahTemp, namaNode)) != NULL)
@@ -157,11 +160,13 @@ void opsiDeleteAnggotaKerajaan(nbAddr treeSilsilahTemp, TreeSilsilah treeTemp){
 		}
 		break;
 		case 2:
+
 		int i;
 //		for(i=0;i<=nbDepth(treeSilsilahTemp);i++)
 		{
 			nbLevelOrder(treeSilsilahTemp,1,i);
 		}
+		
 		printf("Masukkan Nama   : ");
 		scanf("%s", &namaNode);
 		if ((srcNode = nbSearch(treeSilsilahTemp, namaNode)) != NULL)

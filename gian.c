@@ -49,7 +49,7 @@ void InsertSilsilah(nbAddr *tr)
 				printf("Nama Tidak Boleh Sama Dengan Parent");
 				printf("Silahkan Input Kembali");
 				getch();
-				printf("                                       ");
+				printf("                           ");
 				printf("                           ");
 				printf("                           ");
 
