@@ -131,7 +131,7 @@ void InsertSilsilah(nbAddr *tr)
 		}
 		else
 		{
-			nbInsert(&tRoot, nbSearch(*tr, parent), Nama, jenis_kelamin, usia); 
+			insertNode(&tRoot, nbSearch(*tr, parent), Nama, jenis_kelamin, usia); 
 			printf("Anggota dengan nama %s berhasil ditambahkan dengan parent %s", Nama, parent);
 		}
 	}
