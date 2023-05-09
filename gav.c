@@ -2,7 +2,7 @@
 #include "Body.h"
 #include "display.h"
 
-void createNode(TreeSilsilah *x)
+void nbCreate(TreeSilsilah *x)
 {
 	(*x).root = NULL;
 }
@@ -24,7 +24,7 @@ nbAddr nbCNode(nbType nama, char jenis_kelamin, int usia)
 	return newNode;
 }
 
-void insertNode(TreeSilsilah *tRoot, nbAddr parent, nbType nama_param, char jenis_kelamin_param, int usia_param)
+void nbInsert(TreeSilsilah *tRoot, nbAddr parent, nbType nama_param, char jenis_kelamin_param, int usia_param)
 { // Insert New Node baru dengan keadaan tertentu
 	nbAddr newNode, temp;
 	newNode = nbCNode(nama_param, jenis_kelamin_param, usia_param);
@@ -137,11 +137,18 @@ void opsiDeleteAnggotaKerajaan(nbAddr treeSilsilahTemp, TreeSilsilah treeTemp){
 	nbAddr srcNode;
 	
 
+<<<<<<< HEAD
 	printf("Pilih Opsi Tahta\n");
 	printf("\t1. Turunkan Tahta \n"); // delete raja
 	printf("\t2. Bunuh Anggota \n"); // delete anak
 	printf("\tPilih no : ");
 	printSilsilah;
+=======
+	printf("Pilih Opsi Tahta");
+	printf("1. Turunkan Tahta\n"); // delete raja
+	printf("2. Bunuh "); // delete anak
+	printf("Pilih no : ");
+>>>>>>> 6919cc4ce50708fcf808d2ad5e04329165183638
 	scanf("%d", &bunuh);
 	switch (bunuh)
 	{
@@ -162,12 +169,16 @@ void opsiDeleteAnggotaKerajaan(nbAddr treeSilsilahTemp, TreeSilsilah treeTemp){
 		case 2:
 
 		int i;
-//		for(i=0;i<=nbDepth(treeSilsilahTemp);i++)
+		for(i=0;i<=nbDepth(treeSilsilahTemp);i++)
 		{
 			nbLevelOrder(treeSilsilahTemp,1,i);
 		}
+<<<<<<< HEAD
 		
 		printf("Masukkan Nama   : ");
+=======
+		printf("Masukkan Saudara Raja     : ");
+>>>>>>> 6919cc4ce50708fcf808d2ad5e04329165183638
 		scanf("%s", &namaNode);
 		if ((srcNode = nbSearch(treeSilsilahTemp, namaNode)) != NULL)
 		{

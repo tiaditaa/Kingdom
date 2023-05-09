@@ -19,7 +19,7 @@ void InsertSilsilah(nbAddr *tr)
 	nbAddr TNode = NULL, temp = NULL, parentTem = NULL;
 	char jenis_kelamin;
 	int usia;
-	nbType Nama, parent;
+	nbType Nama, parent, Agama;
 
 	if (isSilsilahEmpty(*tr))
 	{
@@ -79,9 +79,9 @@ void InsertSilsilah(nbAddr *tr)
 			printf("usia              : ");
 			fflush(stdin);
 			scanf("%d", &usia);
-			if (usia <= 1 || usia >= 100)
+			if (usia <= 11 || usia >= 100)
 			{
-				printf("usia tidak boleh kurang dari 1 dan lebih dari 100");
+				printf("usia tidak boleh kurang dari 11 dan lebih dari 100");
 				getch();
 				jenis_kelamin_valid = true;
 				printf("usia          : ");
@@ -94,9 +94,9 @@ void InsertSilsilah(nbAddr *tr)
 			}
 		} while (jenis_kelamin_valid);
 
-		if (usia <= 1)
+		if (usia <= 11)
 		{
-			printf("usia tidak boleh lebih kecil dari 1");
+			printf("usia tidak boleh lebih kecil dari 11");
 		}
 		do
 		{
@@ -131,7 +131,7 @@ void InsertSilsilah(nbAddr *tr)
 		}
 		else
 		{
-			insertNode(&tRoot, nbSearch(*tr, parent), Nama, jenis_kelamin, usia); 
+			nbInsert(&tRoot, nbSearch(*tr, parent), Nama, jenis_kelamin, usia); 
 			printf("Anggota dengan nama %s berhasil ditambahkan dengan parent %s", Nama, parent);
 		}
 	}
@@ -174,9 +174,9 @@ void detailAnggota(nbAddr tr)
 					printf("Parent            : %s\n", nama(nm));
 				} else if(!strcmp(nama(tr->fs), namaTemp)){
 					if(jenis_kelamin(tr->fs) == 'L'){
-						printf("\nStatus            : RAJA \n");
+						printf("Status            : RAJA \n");
 					} else if(jenis_kelamin(tr->fs) == 'P'){
-						printf("\nStatus            : RATU \n");
+						printf("Status            : RATU \n");
 					}
 				} else {
 					printf("\n%s adalah saudara dari raja ", namaTemp);
@@ -237,11 +237,11 @@ void urutanPewaris(nbAddr tr)
 				{
 					tr = fs(tr);
 					if(jenis_kelamin(tr) == 'L' && i == 1){
-						printf("\n%d. %s   -  RAJA \n", i, nama(tr));
+						printf("%d. %s   -  RAJA ", i, nama(tr));
 					} else if(jenis_kelamin(tr) == 'P' && i == 1){
-						printf("\n%d. %s   -  RATU \n", i, nama(tr));
+						printf("%d. %s   -  RATU ", i, nama(tr));
 					} else {
-						printf("\n%d. %s\n", i, nama(tr));
+						printf("%d. %s", i, nama(tr));
 					}
 					i++;
 				}
@@ -268,5 +268,19 @@ void urutanPewaris(nbAddr tr)
 			printf("Belum ada pewaris\n");
 		}
 	}
+}
+
+int nbDepth(nbAddr root)
+{
+	int y,z;
+
+	if(root==NULL)
+		return -1;
+	y=nbDepth(root->fs);
+	z=nbDepth(root->nb);
+	if (y > z)
+		return (y+1);
+	else
+		return (z+1);
 }
 

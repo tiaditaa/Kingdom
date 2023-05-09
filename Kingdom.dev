@@ -110,6 +110,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
+<<<<<<< HEAD
 [Unit8]
 FileName=mutia.c
 CompileCpp=1
@@ -132,6 +133,20 @@ BuildCmd=
 
 [Unit4]
 FileName=display.c
+=======
+[Unit4]
+FileName=display.c
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit8]
+FileName=mutia.c
+>>>>>>> 6919cc4ce50708fcf808d2ad5e04329165183638
 CompileCpp=1
 Folder=
 Compile=1
