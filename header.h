@@ -18,6 +18,9 @@
 #define parent(P) (P)->parent
 #define jenis_kelamin(P) (P)->jenis_kelamin
 #define usia(P) (P)->usia
+#define pair(P) (P)->pair
+#define Status(P) (P)->Status
+#define Gender(P) (P)->Gender
 
 
 #define info(P) (P)->info
@@ -33,6 +36,9 @@ typedef struct TnbTreeNode{
 	nbAddr fs;
 	nbAddr nb;
 	nbAddr parent;
+	//nbAddr pair;
+	//bool Status;
+	//bool Gender;
 }nbTreeNode;
 
 struct TreeSilsilah{
