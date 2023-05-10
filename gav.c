@@ -181,3 +181,142 @@ void opsiDeleteAnggotaKerajaan(nbAddr treeSilsilahTemp, TreeSilsilah treeTemp){
 	} 
 
 }
+
+/*
+void InsertWife(nbAddr *tr) 
+{//menambah informasi pasangan (isteri)
+	nbAddr newNode, Temp;
+	nbType Name, Husband;
+	char JenisKelamin;
+	bool Gender;
+	int Usia;
+
+	if (!isSilsilahEmpty(*tr))
+	{
+		fflush(stdin);	
+		printf("Name	: ");
+		gets(Name);
+		
+		fflush(stdin);
+	   	printf("Age (The age of the Wife must be the same as the age of the Husband)	: ");
+	    scanf("%d", &Usia);
+	    
+        JenisKelamin = 'L';
+        
+        newNode = (nbAddr)malloc(sizeof(nbTreeNode));
+        
+        printf("\n");
+        printf("A husband can only have one wife.\n");
+        
+        fflush(stdin);
+        printf("Wife of : ");
+        gets(Husband);
+        
+        if(Search(*tr, Husband) == NULL) 
+		{
+        	printf("Husband not found, maybe he doesn't love you\n");
+        	system("pause");
+        	system("cls");
+			free(newNode);
+		} else 
+		{
+			Temp = Search(*tr,Husband);
+			
+			if(usia(Temp)!= (usia(newNode)))
+			{
+            	printf("The age between couples should be the same.\n");
+            	system("cls");
+				free(newNode);
+        	} else 
+			{
+       			if (jenis_kelamin(Temp) == false)
+				   	{
+           			printf("This government rejects lesbians");
+            		system("cls");
+					free(newNode);
+					} else if (pair(Temp) != NULL) 
+					{
+	            	printf("Sorry he already has a wife");
+	            	system("cls");
+					free(newNode);
+					} else 
+					{
+		            pair(Temp) = newNode;
+		            Status(Temp) = true;
+		            
+		            printf("\n\n");
+		            printf("Yey... Wishing the both of you all the love and happiness in the world and congratulations on your marriage");
+					}
+				}
+			}
+		}
+	}
+
+
+void InsertHusband(nbAddr *Tree) 
+{//menambah informasi pasangan (suami)
+	TnbTreeNode *newNode, *Temp;
+	nbType Name, Pair;
+	char JenisKelamin;
+	bool Gender;
+	int Usia;
+	
+	if (!isSilsilahEmpty(*Tree)) 
+	{
+		fflush(stdin);
+		printf("Name : ");
+		gets(Name);
+		
+		fflush(stdin);
+		printf("Age (The age of the Husband must be the same as the age of the Wife) : ");
+		scanf("%d", &Usia);
+		
+		JenisKelamin = 'M';
+		newNode = (nbAddr)malloc(sizeof(nbTreeNode));
+		
+		printf("\n");
+		printf("A wife can only have one husband.");
+		
+		printf("\n");
+		
+		fflush(stdin);
+		printf("Husband of : ");
+		gets(Pair);
+		
+		if(Search(*Tree, Pair) == NULL) 
+		{
+			printf("Wife not found, maybe he doesn't love you");
+        	system("cls");
+					free(newNode);
+		} else 
+		{
+			Temp = Search(*Tree, Pair);
+		
+			if(usia(Temp) !=(usia(newNode))) 
+			{
+				printf("The age of the couple should be the same");
+				system("cls");
+				free(newNode);
+			} else {
+				if(Gender(Temp) == true) 
+				{
+					printf("Sorry this kingdom rejects gays");
+					system("cls");
+					free(newNode);
+				} else if(pair(Temp) != NULL) 
+				{
+					printf("Sorry she already has a husband");
+					free(newNode);
+				} else 
+				{
+					pair(Temp) = newNode;
+					Status(Temp) = true;
+					
+					printf("\n\n");
+					printf("Yey... Wishing the both of you all the love and happiness in the world and congratulations on your marriage\n");
+				}
+			}
+		}
+	}
+}
+*/
