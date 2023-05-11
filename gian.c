@@ -3,15 +3,7 @@
 #include "Body.h"
 #include "display.h"
 
-//int IsEmpty(nbAddr tr)
-//{
-//	return tr == NULL;
-//}
-//
-//int isSilsilahEmpty(nbAddr tr)
-//{
-//	return IsEmpty(tr);
-//}
+
 
 bool IsSilsilahEmpty(nbAddr tr) {
 	return tr == NULL;
@@ -36,7 +28,7 @@ void InsertSilsilah(nbAddr *tr)
 		printf("Input Anggota Kerajaan ");
 		
 		do{
-			printf("Nama              : ");
+			printf("\nNama : ");
 			fflush(stdin);
 			gets(Nama);
 
@@ -82,7 +74,7 @@ void InsertSilsilah(nbAddr *tr)
 		int i = 1;
 		do
 		{
-			printf("usia              : ");
+			printf("usia  : ");
 			fflush(stdin);
 			scanf("%d", &usia);
 			if (usia <= 11 || usia >= 100)
@@ -90,7 +82,7 @@ void InsertSilsilah(nbAddr *tr)
 				printf("usia tidak boleh kurang dari 1 dan lebih dari 100");
 				getch();
 				jenis_kelamin_valid = true;
-				printf("usia          : ");
+				printf("usia       : ");
 				printf("   ");
 
 			}
@@ -106,7 +98,7 @@ void InsertSilsilah(nbAddr *tr)
 		}
 		do
 		{
-			printf("Masukkan Parent dari Anak Tersebut / jadikan root (root) : ");
+			printf("Masukkan Parent dari Anak Tersebut : ");
 			fflush(stdin);
 			gets(parent);
 			if(strcmp(parent, "") == 0)
@@ -243,11 +235,11 @@ void urutanPewaris(nbAddr tr)
 				{
 					tr = fs(tr);
 					if(jenis_kelamin(tr) == 'L' && i == 1){
-						printf("\n%d. %s   -  RAJA \n", i, nama(tr));
+						printf("\n%d. %s   -  RAJA", i, nama(tr));
 					} else if(jenis_kelamin(tr) == 'P' && i == 1){
-						printf("\n%d. %s   -  RATU \n", i, nama(tr));
+						printf("\n%d. %s   -  RATU", i, nama(tr));
 					} else {
-						printf("%d. %s\n", i, nama(tr));
+						printf("\n%d. %s", i, nama(tr));
 					}
 					i++;
 				}
@@ -256,7 +248,7 @@ void urutanPewaris(nbAddr tr)
 					if (nb(tr) != NULL)
 					{
 						tr = nb(tr);
-						printf("%d. ", i);
+						printf("\n%d. ", i);
 						printf("%s", nama(tr));
 						visit = true;
 						i++;
