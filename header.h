@@ -18,17 +18,10 @@
 #define parent(P) (P)->parent
 #define jenis_kelamin(P) (P)->jenis_kelamin
 #define usia(P) (P)->usia
-<<<<<<< HEAD
 #define status(P) (P)->status
 #define pasangan(P) (P)->pasangan
 #define Gender(P) (P)->Gender
 #define namapasangan(P) (P)->namapasangan
-=======
-#define pair(P) (P)->pair
-#define Status(P) (P)->Status
-#define Gender(P) (P)->Gender
-
->>>>>>> 969b1817954e64e4c59027ed9c878db2689916e5
 
 #define info(P) (P)->info
 #define next(P) (P)->next
@@ -43,21 +36,12 @@ typedef struct TNBTree{
 	int usia;
 	nbAddr fs;
 	nbAddr nb;
-<<<<<<< HEAD
 	nbAddr parent; 
 	TNBTree *pasangan, *namapasangan;
 	bool Gender;
 	bool status;
 }NBTree;
 	
-=======
-	nbAddr parent;
-	//nbAddr pair;
-	//bool Status;
-	//bool Gender;
-}nbTreeNode;
-
->>>>>>> 969b1817954e64e4c59027ed9c878db2689916e5
 struct TreeSilsilah{
 //	nbAddr *root;
 	nbAddr root;
