@@ -5,6 +5,7 @@
 void InsertHusband(nbAddr tr);
 void InsertWife(nbAddr tr);
 bool IsSilsilahEmpty(nbAddr tr);
+nbAddr nbCNode(nbType nama, char jenis_kelamin, int usia);
 void CreateNode(nbAddr *tr); //membuat node kosong 
 void InsertSilsilah(nbAddr *tr); //menambahkan node ke dalam tree
 void printSilsilah(nbAddr tr, char tab[]); //untuk menampilkan silsilah
