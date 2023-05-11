@@ -3,62 +3,31 @@
 #include "display.h"
 
 
-nbAddr nbSearch(nbAddr root, nbType nameParam)
-{
-	nbAddr nSrc;
-	if (root != NULL)
-	{
-		if (strcmp(root->nama, nameParam) == 0)
-			return root;
-		else
-		{
-			nSrc = nbSearch(root->fs, nameParam);
-			if (nSrc == NULL)
-				return nbSearch(root->nb, nameParam);
-			else
-				return nSrc;
-		}
-	}
-	return NULL;
-}
 
-nbAddr Search(nbAddr tr, nbType SQ)
-{
-	boolean visit = true;
-	if (isSilsilahEmpty(tr))
-		return NULL;
-	if (strcmp(nama(tr), SQ) == 0)
-		return tr;
-	else if (strcmp(nama(tr), SQ) != 0 && fs(tr) == NULL)
-		return NULL;
-	else
-	{
-		while (parent(tr) != NULL || visit)
-		{
-			if (fs(tr) != NULL && visit)
-			{
-				tr = fs(tr);
-				if (strcmp(nama(tr), SQ) == 0)
-					return tr;
-			}
-			else
-			{
-				if (nb(tr) != NULL)
-				{
-					tr = nb(tr);
-					if (strcmp(nama(tr), SQ) == 0)
-						return tr;
-					visit = true;
+TNBTree* Search(nbAddr tr, nbType nama) {
+	TNBTree *Node = tr;
+	
+	while(Node != NULL) {
+		if(strcmp(nama(Node), nama) == 0) {
+			return Node;
+		}
+		
+		if(fs(Node) != NULL) {
+			Node = fs(Node);
+		} else {
+			if(nb(Node) != NULL) {
+				Node = nb(Node);
+			} else {
+				while(nb(Node) == NULL && Node != tr) {
+					Node = parent(Node);
 				}
-				else
-				{
-					visit = false;
-					tr = parent(tr);
-				}
+				
+				Node = nb(Node);
 			}
 		}
-		return NULL;
 	}
+	
+	return NULL;
 }
 
 void printSilsilah(nbAddr tr, char tab[])
@@ -70,44 +39,48 @@ void printSilsilah(nbAddr tr, char tab[])
 	if (tr != NULL)
 	{
 		// root node jangan di tampilkan
-		if (strcmp(nama(tr), "root") != 0)
-		{
-			printf("\t %s%s\n", tab, tr->nama);
-		}
-		printSilsilah(tr->fs, tempTab);
-		printSilsilah(tr->nb, tab);
+//		if (strcmp(nama(tr), "root") != 0)
+//		{
+			if(status(tr) !=NULL)
+			{
+				printf("\t %s%s (%s) \n", tab, nama(tr), nama(pasangan(tr)));
+				printSilsilah(tr->fs, tempTab);
+				printSilsilah(tr->nb, tab);
+				
+			} else 
+			{ printf("\t %s%s \n", tab, tr->nama); 
+					printSilsilah(tr->fs, tempTab);
+				printSilsilah(tr->nb, tab);	
+			}
+			
 	}
-}
+		}
 
-TnbTreeNode *SearchNode(TreeSilsilah tree, nbType nama)
+
+TNBTree *SearchNode(TreeSilsilah tree, nbType nama)
 {
-	TnbTreeNode *node = tree.root;
-	while (node != NULL)
-	{
-		if (strcmp(nama(node), nama) == 0)
-		{
-			return node;
+	TNBTree *Node = tree.root;
+	
+	while(Node != NULL) {
+		if(strcmp(nama(Node), nama) == 0) {
+			return Node;
 		}
-		if (fs(node) != NULL)
-		{
-			node = fs(node);
-		}
-		else
-		{
-			if (nb(node) != NULL)
-			{
-				node = nb(node);
-			}
-			else
-			{
-				while (nb(node) == NULL && node != tree.root)
-				{
-					node = parent(node);
+		
+		if(fs(Node) != NULL) {
+			Node = fs(Node);
+		} else {
+			if(nb(Node) != NULL) {
+				Node = nb(Node);
+			} else {
+				while(nb(Node) == NULL && Node != tree.root) {
+					Node = parent(Node);
 				}
-				node = nb(node);
+				
+				Node = nb(Node);
 			}
 		}
 	}
+	
 	return NULL;
 }
 
@@ -145,13 +118,13 @@ void nbDelete2(nbAddr *pDel, TreeSilsilah *pTree){
 void menuHitungAnak(nbAddr treeSilsilahTemp){
 	nbType parentTempInput;
 	int src;
-//	printSilsilah(Tree.root, str);
+	printSilsilah;
 	printf("Masukkan nama parent : ");
 	fflush(stdin);
 	gets(parentTempInput);
 
 	// cek parent apakah ada
-	if (nbSearch(treeSilsilahTemp, parentTempInput) == NULL)
+	if (Search(treeSilsilahTemp, parentTempInput) == NULL)
 	{
 		printf("Parent tidak ditemukan");
 	}

@@ -4,7 +4,7 @@
 #include"header.h"
 
 
-void Menu(); // menampilkan box menu
+void Menu(); // menampilkan menu
 void aturanDisplay(); // menampilkan aturan kerajaan
 
 #endif 

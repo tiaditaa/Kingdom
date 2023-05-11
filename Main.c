@@ -12,17 +12,16 @@ int main()
 	
 	// add data ke node secara statis 
 	createNode(&Tree);
-	insertNode(&Tree, NULL, "root", 'P', 80); // nb insert ini dinyatakan sebagai root
-	insertNode(&Tree, nbSearch(Tree.root, "root"), "Charles", 'L', 63); // nb insert ini dinyatakan sebagai Raja
-	insertNode(&Tree, nbSearch(Tree.root, "Charles"), "Anne", 'P', 47); 
-//	insertNode(&Tree, nbSearch(Tree.root, "Charles"), "Raja", 'L', 49); 
-	insertNode(&Tree, nbSearch(Tree.root, "Charles"), "Williawati", 'P', 46);
-	insertNode(&Tree, nbSearch(Tree.root, "Charles"), "George", 'L', 20);
-	insertNode(&Tree, nbSearch(Tree.root, "Williawati"), "Charlotte", 'P', 45);
-//	insertNode(&Tree, nbSearch(Tree.root, "root"), "Louis", 'L', 51);
-//	insertNode(&Tree, nbSearch(Tree.root, "root"), "Harry", 'L', 51);
-//	insertNode(&Tree, nbSearch(Tree.root, "George"), "Beatrice", 'p', 29);
-//	insertNode(&Tree, nbSearch(Tree.root, "George"), "Eugenie", 'P', 28);
+	insertNode(&Tree, NULL, "", 'P', 80); // nb insert ini dinyatakan sebagai root
+	insertNode(&Tree, Search(Tree.root, ""), "Charles", 'L', 74); // nb insert ini dinyatakan sebagai Raja
+	insertNode(&Tree, Search(Tree.root, "Charles"), "William", 'L', 40); 
+	insertNode(&Tree, Search(Tree.root, "Charles"), "Harry", 'L', 38);
+	insertNode(&Tree, Search(Tree.root, "William"),  "George", 'L', 9);
+	insertNode(&Tree, Search(Tree.root, "William"), "Charlotte", 'P', 8);
+	insertNode(&Tree, Search(Tree.root, "William"), "Louis", 'L', 5);
+	insertNode(&Tree, Search(Tree.root, "Harry"), "Archie", 'L', 4);
+//	insertNode(&Tree, Search(Tree.root, "George"), "Beatrice", 'p', 29);
+//	insertNode(&Tree, Search(Tree.root, "George"), "Eugenie", 'P', 28);
 
 	for (;;)
 	{
@@ -39,18 +38,12 @@ int main()
 			getch();
 			break;
 		case 2:
-			if (isSilsilahEmpty(Tree.root))
-			{
-				printf("Belum ada siapapun disini");
-				getch();
-				break;
-			}
 			printSilsilah(Tree.root, str);
 			getch();
 			break;
 		case 3:
 			int src;
-			if (isSilsilahEmpty(Tree.root))
+			if (IsSilsilahEmpty(Tree.root))
 			{
 				printf("Belum ada siapapun disini");
 				getch();
@@ -66,7 +59,7 @@ int main()
 		case 5:
 			system("cls");
 			Menu();
-			if (isSilsilahEmpty(Tree.root))
+			if (IsSilsilahEmpty(Tree.root))
 			{
 				printf("Silsilah Belum Dibuat");
 				getch();
@@ -80,7 +73,7 @@ int main()
 			Menu();
 			detailAnggota(Tree.root);
 			Menu();
-			if (isSilsilahEmpty(Tree.root))
+			if (IsSilsilahEmpty(Tree.root));
 			{
 				printf("Silsilah Belum Dibuat");
 				getch();
@@ -94,6 +87,14 @@ int main()
 		case 0:
 			exit(0);
 			break;
+		case 8:
+			InsertWife(Tree.root);
+			system("cls");
+			break;
+		case 9:
+			InsertHusband(Tree.root);
+			system("cls");
+			break;		
 		default:
 			printf("Inputan Salah !!");
 			getch();

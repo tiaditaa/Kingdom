@@ -1,16 +1,22 @@
 #include "header.h"
+#include "header.h"
 #include "Body.h"
 #include "display.h"
 
-int isTreeEmpty(nbAddr tr)
-{
+//int IsEmpty(nbAddr tr)
+//{
+//	return tr == NULL;
+//}
+//
+//int isSilsilahEmpty(nbAddr tr)
+//{
+//	return IsEmpty(tr);
+//}
+
+bool IsSilsilahEmpty(nbAddr tr) {
 	return tr == NULL;
 }
 
-int isSilsilahEmpty(nbAddr tr)
-{
-	return isTreeEmpty(tr);
-}
 
 
 void InsertSilsilah(nbAddr *tr)
@@ -19,9 +25,9 @@ void InsertSilsilah(nbAddr *tr)
 	nbAddr TNode = NULL, temp = NULL, parentTem = NULL;
 	char jenis_kelamin;
 	int usia;
-	nbType Nama, parent, Agama;
+	nbType Nama, parent;
 
-	if (isSilsilahEmpty(*tr))
+	if (IsSilsilahEmpty(*tr))
 	{
 		printf("Silsilah Belum Ada");
 	}
@@ -49,7 +55,7 @@ void InsertSilsilah(nbAddr *tr)
 				printf("Nama Tidak Boleh Sama Dengan Parent");
 				printf("Silahkan Input Kembali");
 				getch();
-				printf("                           ");
+				printf("                                       ");
 				printf("                           ");
 				printf("                           ");
 
@@ -57,7 +63,7 @@ void InsertSilsilah(nbAddr *tr)
 		} while (strlen(Nama) == 0 || parentTem != NULL);
 
 		
-
+ 
 		do
 		{
 			printf("Jenis Kelamin L/P : ");
@@ -81,7 +87,7 @@ void InsertSilsilah(nbAddr *tr)
 			scanf("%d", &usia);
 			if (usia <= 11 || usia >= 100)
 			{
-				printf("usia tidak boleh kurang dari 11 dan lebih dari 100");
+				printf("usia tidak boleh kurang dari 1 dan lebih dari 100");
 				getch();
 				jenis_kelamin_valid = true;
 				printf("usia          : ");
@@ -94,9 +100,9 @@ void InsertSilsilah(nbAddr *tr)
 			}
 		} while (jenis_kelamin_valid);
 
-		if (usia <= 11)
+		if (usia <= 1)
 		{
-			printf("usia tidak boleh lebih kecil dari 11");
+			printf("usia tidak boleh lebih kecil dari 1");
 		}
 		do
 		{
@@ -131,7 +137,7 @@ void InsertSilsilah(nbAddr *tr)
 		}
 		else
 		{
-			insertNode(&tRoot, nbSearch(*tr, parent), Nama, jenis_kelamin, usia); 
+			insertNode(&tRoot, Search(*tr, parent), Nama, jenis_kelamin, usia); 
 			printf("Anggota dengan nama %s berhasil ditambahkan dengan parent %s", Nama, parent);
 		}
 	}
@@ -142,7 +148,7 @@ void detailAnggota(nbAddr tr)
 	nbAddr nm;
 	char namaTemp[255];
 	int i = 1;
-	if (isSilsilahEmpty(tr))
+	if (IsSilsilahEmpty(tr))
 	{
 		printf("Silsilah Belum Ada");
 	}
@@ -169,14 +175,14 @@ void detailAnggota(nbAddr tr)
 			if (nm != 
 			NULL)
 			{
-				if(strcmp(nama(nm), "root"))
+				if(strcmp(nama(nm), ""))
 				{
-					printf("Parent            : %s\n", nama(nm));
+					printf("\nParent            : %s\n", nama(nm));
 				} else if(!strcmp(nama(tr->fs), namaTemp)){
 					if(jenis_kelamin(tr->fs) == 'L'){
-						printf("Status            : RAJA \n");
+						printf("\nStatus            : RAJA \n");
 					} else if(jenis_kelamin(tr->fs) == 'P'){
-						printf("Status            : RATU \n");
+						printf("\nStatus            : RATU \n");
 					}
 				} else {
 					printf("\n%s adalah saudara dari raja ", namaTemp);
@@ -191,9 +197,9 @@ void detailAnggota(nbAddr tr)
 
 int hitungAnak(nbAddr tree, nbType parent)
 {
-	TnbTreeNode *temp;
+	TNBTree *temp;
 	int jumlah = 0;
-	if (!isTreeEmpty(tree))
+	if (!IsSilsilahEmpty(tree))
 	{
 		temp = Search(tree, parent);
 		// jika parent ditemukan
@@ -237,11 +243,11 @@ void urutanPewaris(nbAddr tr)
 				{
 					tr = fs(tr);
 					if(jenis_kelamin(tr) == 'L' && i == 1){
-						printf("%d. %s   -  RAJA ", i, nama(tr));
+						printf("\n%d. %s   -  RAJA \n", i, nama(tr));
 					} else if(jenis_kelamin(tr) == 'P' && i == 1){
-						printf("%d. %s   -  RATU ", i, nama(tr));
+						printf("\n%d. %s   -  RATU \n", i, nama(tr));
 					} else {
-						printf("%d. %s", i, nama(tr));
+						printf("%d. %s\n", i, nama(tr));
 					}
 					i++;
 				}

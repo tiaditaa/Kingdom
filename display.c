@@ -37,6 +37,8 @@ void Menu(){
     printf("\t\t5. Turunkan Tahta Raja\n");
 	printf("\t\t6. Detail Anggota Kerajaan\n");
 	printf("\t\t7. Peraturan\n");
+	printf("\t\t8. Tambah istri\n");
+	printf("\t\t9. Tambah Suami\n");
 	printf("\t\t0. Exit\n");
 	printf("\n\t\tPilih: ");
 }

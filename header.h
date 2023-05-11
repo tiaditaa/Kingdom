@@ -18,24 +18,38 @@
 #define parent(P) (P)->parent
 #define jenis_kelamin(P) (P)->jenis_kelamin
 #define usia(P) (P)->usia
-
+#define status(P) (P)->status
+#define pasangan(P) (P)->pasangan
+#define Gender(P) (P)->Gender
+#define namapasangan(P) (P)->namapasangan
 
 #define info(P) (P)->info
 #define next(P) (P)->next
 #define Nil NULL
 
 typedef char nbType[50];
-typedef struct TnbTreeNode *nbAddr;
-typedef struct TnbTreeNode{
+typedef struct TNBTree *nbAddr;
+typedef struct TNBTree{
 	nbType nama;
 	char jenis_kelamin;
+	char name;
 	int usia;
 	nbAddr fs;
 	nbAddr nb;
-	nbAddr parent;
-}nbTreeNode;
-
+	nbAddr parent; 
+	TNBTree *pasangan, *namapasangan;
+	bool Gender;
+	bool status;
+}NBTree;
+	
 struct TreeSilsilah{
+//	nbAddr *root;
 	nbAddr root;
 };
+
+typedef struct{
+	TNBTree *Root;
+}DataTree;
+
+
 #endif

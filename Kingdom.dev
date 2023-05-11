@@ -50,16 +50,6 @@ ProductVersion=
 AutoIncBuildNr=0
 SyncProduct=1
 
-[Unit1]
-FileName=Body.h
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
 [Unit2]
 FileName=display.h
 CompileCpp=1
@@ -71,6 +61,16 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit3]
+FileName=display.c
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit4]
 FileName=header.h
 CompileCpp=1
 Folder=
@@ -81,7 +81,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit5]
-FileName=gav.c
+FileName=Main.c
 CompileCpp=1
 Folder=
 Compile=1
@@ -101,7 +101,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit7]
-FileName=Main.c
+FileName=gav.c
 CompileCpp=1
 Folder=
 Compile=1
@@ -110,7 +110,6 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-<<<<<<< HEAD
 [Unit8]
 FileName=mutia.c
 CompileCpp=1
@@ -122,7 +121,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit9]
-FileName=mutia.c
+FileName=mutia.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -131,22 +130,8 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit4]
-FileName=display.c
-=======
-[Unit4]
-FileName=display.c
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit8]
-FileName=mutia.c
->>>>>>> 6919cc4ce50708fcf808d2ad5e04329165183638
+[Unit1]
+FileName=Body.h
 CompileCpp=1
 Folder=
 Compile=1

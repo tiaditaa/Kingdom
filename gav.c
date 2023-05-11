@@ -2,15 +2,15 @@
 #include "Body.h"
 #include "display.h"
 
-void createNode(TreeSilsilah *x)
+void createNode(TreeSilsilah *tree)
 {
-	(*x).root = NULL;
+	(*tree).root = NULL;
 }
 
 nbAddr nbCNode(nbType nama, char jenis_kelamin, int usia)
 { // Create New Node
 	nbAddr newNode;
-	newNode = (nbAddr)malloc(sizeof(nbTreeNode));
+	newNode = (nbAddr)malloc(sizeof(TNBTree));
 	if (newNode != NULL)
 	{
 		strcpy(newNode->nama, nama);
@@ -20,6 +20,8 @@ nbAddr nbCNode(nbType nama, char jenis_kelamin, int usia)
 		newNode->fs = NULL;
 		newNode->nb = NULL;
 		newNode->parent = NULL;
+		newNode->pasangan = NULL;
+		status(newNode) = false;
 	}
 	return newNode;
 }
@@ -131,6 +133,144 @@ void nbDelete(nbAddr *pDel, TreeSilsilah *pTree){
 		pTree->root=pCur;
 }
 
+void InsertWife(nbAddr tr) {
+		TreeSilsilah tRoot;
+	TNBTree *newNode, *Temp;
+	nbType Husband, parent, nama, pasangan;
+	char jenis_kelamin, name;
+	bool Gender;
+	int usia;
+	nbAddr Name, namapasangan;
+
+	if (!IsSilsilahEmpty(tr)) {	
+		
+		fflush(stdin);
+		printf("Name	: ");
+		scanf("%s", &pasangan);
+		
+		fflush(stdin);
+	   	printf("usia	: ");
+	    scanf("%d", &usia);
+	    printf("%d", usia);
+	    getch();
+        jenis_kelamin = 'L';
+        
+        newNode = nbCNode(pasangan, jenis_kelamin, usia);
+        
+        printf("\n");
+        printf("A husband can only have one wife.\n");
+        
+       fflush(stdin);
+       printf("Wife of : ");
+       gets(Husband);
+       
+       
+    	if(Search(tr, Husband) == NULL) {
+        	printf("Husband not found, maybe he doesn't love you\n");
+        	system("pause");
+        	system("cls");
+			free(newNode);
+		} else {
+			Temp = Search(tr,Husband);
+			
+      
+			if(usia(Temp) != usia(newNode)) {
+            	getch();
+				printf("The age between couples should be the same.\n");
+            	system("cls");
+				free(newNode);
+        	} else {
+       			if (Gender(Temp) == false) {
+           			printf("This government rejects lesbians");
+       
+            		system("cls");
+					free(newNode);
+       			} else if ((Temp) == NULL) {
+	            	printf("Sorry he already has a wife");
+                	system("cls");
+					free(newNode);
+				} else {
+		            pasangan(Temp) = newNode;
+		            status(Temp) = true;
+		            printf ("%s", &namapasangan); getch ();
+		            printf("\n\n");
+		            printf("Selamat kalian resmi menikah");
+       				getch();
+        		}
+      	}	
+		}
+	}   
+}
+
+void InsertHusband(nbAddr tr) {
+		TreeSilsilah tRoot;
+	TNBTree *newNode, *Temp;
+	nbType Wife, parent, nama, pasangan;
+	char jenis_kelamin, name;
+	bool Gender;
+	int usia;
+	nbAddr Name, namapasangan;
+
+	if (!IsSilsilahEmpty(tr)) {	
+		
+		fflush(stdin);
+		printf("Name	: ");
+		scanf("%s", &pasangan);
+		
+		fflush(stdin);
+	   	printf("usia	: ");
+	    scanf("%d", &usia);
+	    printf("%d", usia);
+	    getch();
+        jenis_kelamin = 'L';
+        
+        newNode = nbCNode(pasangan, jenis_kelamin, usia);
+        
+        printf("\n");
+        printf("\n");
+        
+       fflush(stdin);
+       printf("suami dari : ");
+       gets(Wife);
+       
+       
+    	if(Search(tr, Wife) == NULL) {
+        	printf("node tidak tersedia\n");
+        	system("pause");
+        	system("cls");
+			free(newNode);
+		} else {
+			Temp = Search(tr,Wife);
+			
+      
+			if(usia(Temp) != usia(newNode)) {
+            	getch();
+				printf("The age between couples should be the same.\n");
+            	system("cls");
+				free(newNode);
+        	} else {
+       			if (Gender(Temp) == false) {
+           			printf("This government rejects lesbians");
+       
+            		system("cls");
+					free(newNode);
+       			} else if ((Temp) == NULL) {
+	            	printf("Sorry he already has a wife");
+                	system("cls");
+					free(newNode);
+				} else {
+		            pasangan(Temp) = newNode;
+		            status(Temp) = true;
+		            printf ("%s", &namapasangan); getch ();
+		            printf("\n\n");
+		            printf("Selamat kalian resmi menikah");
+       				getch();
+        		}
+      	}	
+		}
+	}   
+}
+
 void opsiDeleteAnggotaKerajaan(nbAddr treeSilsilahTemp, TreeSilsilah treeTemp){
 	int bunuh;
 	nbType namaNode;
@@ -146,7 +286,7 @@ void opsiDeleteAnggotaKerajaan(nbAddr treeSilsilahTemp, TreeSilsilah treeTemp){
 	case 1:
 		printf("Masukkan nama : ");
 		scanf("%s", &namaNode);
-		if ((srcNode = nbSearch(treeSilsilahTemp, namaNode)) != NULL)
+		if ((srcNode = Search(treeSilsilahTemp, namaNode)) != NULL)
 		{
 			nbDelete2(&srcNode, &treeTemp);
 			printf("%s telah diturunkan tahtanya", namaNode);
@@ -164,7 +304,7 @@ void opsiDeleteAnggotaKerajaan(nbAddr treeSilsilahTemp, TreeSilsilah treeTemp){
 		}
 		printf("Masukkan Saudara Raja     : ");
 		scanf("%s", &namaNode);
-		if ((srcNode = nbSearch(treeSilsilahTemp, namaNode)) != NULL)
+		if ((srcNode = Search(treeSilsilahTemp, namaNode)) != NULL)
 		{
 			nbDelete(&srcNode, &treeTemp);
 			printf("Data telah dihapus");

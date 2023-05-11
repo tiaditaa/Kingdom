@@ -2,15 +2,16 @@
 #define silsilah_H
 #include "header.h"
 
-int isSilsilahEmpty(nbAddr tr); //cek Tree apakah kosong atau tidak 
-void createNode(nbAddr *tr); //membuat node kosong 
+void InsertHusband(nbAddr tr);
+void InsertWife(nbAddr tr);
+bool IsSilsilahEmpty(nbAddr tr);
+void CreateNode(nbAddr *tr); //membuat node kosong 
 void InsertSilsilah(nbAddr *tr); //menambahkan node ke dalam tree
-nbAddr Search(nbAddr tr,nbType SQ); //untuk mencari node tertentu
 void printSilsilah(nbAddr tr, char tab[]); //untuk menampilkan silsilah
 void urutanPewaris(nbAddr tr); //untuk menampilkan urutan pewaris
 void LihatIdentitas(nbAddr tr,nbType data); //untuk menampilkan identitas lengkap dari nama yang dicari
 void insertNode(TreeSilsilah *tRoot, nbAddr parent, nbType nama_param, char jenis_kelamin_param, int usia_param); // untuk menambahkan node baru
-nbAddr nbSearch(nbAddr root, nbType nameParam); //untuk mencari node yang dicari berdasarkan nama yang dicari 
+TNBTree* Search(nbAddr tr, nbType nama); // Searching for nodes in the tree
 void createNode(TreeSilsilah *x); // membuat create anggota kerajaan silsilah 
 void nbDelete(nbAddr *pDel, TreeSilsilah *pTree);// Delete sebagai saudara dari raja
 void nbDelete2(nbAddr *pDel, TreeSilsilah *pTree);//Delete Raja dan Upgrade ke Raja
