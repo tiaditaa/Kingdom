@@ -10,7 +10,7 @@ void aturanDisplay(){
 	fp = fopen("aturanKerajaan.txt", "r");
 	if (fp == NULL)
 	{
-		printf("Error opening file!\n");
+		printf("Error dalam membuka file!\n");
 		exit(1);
 	}
 	// read file txt
@@ -39,6 +39,6 @@ void Menu(){
 	printf("\t\t7. Peraturan\n");
 	printf("\t\t8. Tambah istri\n");
 	printf("\t\t9. Tambah Suami\n");
-	printf("\t\t0. Exit\n");
+	printf("\t\t0. Keluar\n");
 	printf("\n\t\tPilih: ");
 }
