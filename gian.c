@@ -74,15 +74,15 @@ void InsertSilsilah(nbAddr *tr)
 		int i = 1;
 		do
 		{
-			printf("usia  : ");
+			printf("Usia  : ");
 			fflush(stdin);
 			scanf("%d", &usia);
 			if (usia <= 11 || usia >= 100)
 			{
-				printf("usia tidak boleh kurang dari 1 dan lebih dari 100");
+				printf("Usia tidak boleh kurang dari 1 dan lebih dari 100");
 				getch();
 				jenis_kelamin_valid = true;
-				printf("usia       : ");
+				printf("Usia       : ");
 				printf("   ");
 
 			}
@@ -94,7 +94,7 @@ void InsertSilsilah(nbAddr *tr)
 
 		if (usia <= 1)
 		{
-			printf("usia tidak boleh lebih kecil dari 1");
+			printf("Usia tidak boleh lebih kecil dari 1");
 		}
 		do
 		{
@@ -294,11 +294,11 @@ void InsertWife(nbAddr tr) {
 	if (!IsSilsilahEmpty(tr)) {	
 		
 		fflush(stdin);
-		printf("Name	: ");
+		printf("Nama	: ");
 		scanf("%s", &pasangan);
 		
 		fflush(stdin);
-	   	printf("usia	: ");
+	   	printf("Usia	: ");
 	    scanf("%d", &usia);
 	    getch();
         jenis_kelamin = 'L';
@@ -306,15 +306,15 @@ void InsertWife(nbAddr tr) {
         newNode = nbCNode(pasangan, jenis_kelamin, usia);
         
         printf("\n");
-        printf("A husband can only have one wife.\n");
+        printf("Suami hanya boleh memiliki satu isteri.\n");
         
        fflush(stdin);
-       printf("Wife of : ");
+       printf("Isteri dari : ");
        gets(Husband);
        
        
     	if(Search(tr, Husband) == NULL) {
-        	printf("Husband not found, maybe he doesn't love you\n");
+        	printf("Suami tidak ditemukan, nama tersebut sudah memiliki pasangan\n");
         	system("pause");
         	system("cls");
 			free(newNode);
@@ -324,17 +324,17 @@ void InsertWife(nbAddr tr) {
       
 			if(usia(Temp) != usia(newNode)) {
             	getch();
-				printf("The age between couples should be the same.\n");
+				printf("Usia diantara pasangan harus sama.\n");
             	system("cls");
 				free(newNode);
         	} else {
        			if (Gender(Temp) == false) {
-           			printf("This government rejects lesbians");
+           			printf("Pemerintahan menolak hubungan sesama jenis");
        
             		system("cls");
 					free(newNode);
        			} else if ((Temp) == NULL) {
-	            	printf("Sorry he already has a wife");
+	            	printf("Maaf, dia telah memiliki isteri");
                 	system("cls");
 					free(newNode);
 				} else {
@@ -342,7 +342,7 @@ void InsertWife(nbAddr tr) {
 		            status(Temp) = true;
 		            printf ("%s", &namapasangan); getch ();
 		            printf("\n\n");
-		            printf("Selamat kalian resmi menikah");
+		            printf("Selamat kalian telah resmi menikah");
        				getch();
         		}
       	}	
@@ -362,11 +362,11 @@ void InsertHusband(nbAddr tr) {
 	if (!IsSilsilahEmpty(tr)) {	
 		
 		fflush(stdin);
-		printf("Name	: ");
+		printf("Nama	: ");
 		scanf("%s", &pasangan);
 		
 		fflush(stdin);
-	   	printf("usia	: ");
+	   	printf("Usia	: ");
 	    scanf("%d", &usia);
 	    getch();
         jenis_kelamin = 'L';
@@ -377,12 +377,12 @@ void InsertHusband(nbAddr tr) {
         printf("\n");
         
        fflush(stdin);
-       printf("suami dari : ");
+       printf("Suami dari : ");
        gets(Wife);
        
        
     	if(Search(tr, Wife) == NULL) {
-        	printf("node tidak tersedia\n");
+        	printf("Node tidak tersedia\n");
         	system("pause");
         	system("cls");
 			free(newNode);
@@ -392,17 +392,17 @@ void InsertHusband(nbAddr tr) {
       
 			if(usia(Temp) != usia(newNode)) {
             	getch();
-				printf("The age between couples should be the same.\n");
+				printf("Umur diantara pasangan harus sama.\n");
             	system("cls");
 				free(newNode);
         	} else {
        			if (Gender(Temp) == false) {
-           			printf("This government rejects lesbians");
+           			printf("Pemerintahan menolak hubungan sesama jenis");
        
             		system("cls");
 					free(newNode);
        			} else if ((Temp) == NULL) {
-	            	printf("Sorry he already has a wife");
+	            	printf("Maaf, dia telah memiliki isteri");
                 	system("cls");
 					free(newNode);
 				} else {
