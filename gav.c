@@ -135,6 +135,10 @@ void nbDelete(nbAddr *pDel, TreeSilsilah *pTree){
 
 void opsiDeleteAnggotaKerajaan(nbAddr treeSilsilahTemp, TreeSilsilah treeTemp){
 	int bunuh;
+	TreeSilsilah Tree;
+	nbAddr src, deleteNode,PDel;
+	int pil;
+	char str[] = "\t";
 	nbType namaNode;
 	nbAddr srcNode;
 
@@ -160,10 +164,7 @@ void opsiDeleteAnggotaKerajaan(nbAddr treeSilsilahTemp, TreeSilsilah treeTemp){
 		break;
 		case 2:
 		int i;
-		for(i=0;i<=nbDepth(treeSilsilahTemp);i++)
-		{
-			nbLevelOrder(treeSilsilahTemp,1,i);
-		}
+			printSilsilah(Tree.root, str);
 		printf("Masukkan Saudara Raja     : ");
 		scanf("%s", &namaNode);
 		if ((srcNode = Search(treeSilsilahTemp, namaNode)) != NULL)

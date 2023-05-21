@@ -65,6 +65,7 @@ int main()
 				getch();
 				break;
 			}
+			printSilsilah(Tree.root, str);
 			opsiDeleteAnggotaKerajaan(Tree.root, Tree);
 			getch();
 			break;
