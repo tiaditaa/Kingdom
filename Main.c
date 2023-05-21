@@ -20,7 +20,7 @@ int main()
 	insertNode(&Tree, Search(Tree.root, "William"), "Charlotte", 'P', 8);
 	insertNode(&Tree, Search(Tree.root, "William"), "Louis", 'L', 5);
 	insertNode(&Tree, Search(Tree.root, "Harry"), "Archie", 'L', 4);
-//	insertNode(&Tree, Search(Tree.root, "George"), "Beatrice", 'p', 29);
+//	insertNode(&Tree, Search(Tree.root, "Harry"), "Beatrice", 'p', 29);
 //	insertNode(&Tree, Search(Tree.root, "George"), "Eugenie", 'P', 28);
 
 	for (;;)
@@ -72,6 +72,7 @@ int main()
 		case 6:
 			system("cls");
 			Menu();
+			printSilsilah(Tree.root, str);
 			detailAnggota(Tree.root);
 			Menu();
 			if (IsSilsilahEmpty(Tree.root));
@@ -89,13 +90,18 @@ int main()
 			exit(0);
 			break;
 		case 8:
+			printSilsilah(Tree.root, str);
 			InsertWife(Tree.root);
 			system("cls");
 			break;
 		case 9:
+			printSilsilah(Tree.root, str);
 			InsertHusband(Tree.root);
 			system("cls");
-			break;		
+			break;	
+		case 10:
+			readHistory();
+                break;		
 		default:
 			printf("Inputan Salah !!");
 			getch();

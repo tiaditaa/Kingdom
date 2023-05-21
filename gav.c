@@ -87,69 +87,131 @@ void nbUpgrade(nbAddr *root)
 }
 
 //Delete Tengah
-void nbDelete(nbAddr *pDel, TreeSilsilah *pTree){
-	nbAddr pCur,pAdd,pTemp;
-	pCur=*pDel;
+//void nbDelete(nbAddr *pDel, TreeSilsilah *pTree){
+//	nbAddr pCur,pAdd,pTemp;
+//	pCur=*pDel;
+//
+//	if (pCur==pTree->root && pCur->fs==NULL){
+//		pTree->root=NULL;
+//		return;
+//	}
+//
+//	while(pCur->fs!=NULL)
+//		pCur=pCur->fs;
+//
+//	while (pCur!=*pDel){
+//		nbUpgrade(&pCur);
+//		if (pCur->parent!=NULL)
+//			pCur->nb=pCur->parent->nb;
+//		else
+//			pCur->nb=NULL;
+//		pCur=pCur->parent;
+//	}
+//
+//	if (pCur->parent != NULL)
+//		pAdd = pCur->parent->fs;
+//	else
+//		pAdd = pCur;
+//	while(pAdd->nb != *pDel && pAdd != *pDel){
+//		pAdd = pAdd->nb;
+//	}
+//	if (pAdd != *pDel){
+//		if (pCur->fs != NULL)
+//			pAdd->nb = pCur->fs;
+//		else 
+//			pAdd->nb = pCur->nb;
+//	}
+//	else if (pCur->nb != NULL && pAdd->parent != NULL){
+//		pAdd->parent->fs = pCur->nb;
+//	}
+//	else {
+//		pTree->root = pCur->fs;
+//	}
+//	if (pCur->fs!=NULL)
+//		pCur->fs->parent=pCur->parent;
+//	if (pCur->parent==NULL)
+//		pTree->root=pCur;
+//}
 
-	if (pCur==pTree->root && pCur->fs==NULL){
-		pTree->root=NULL;
-		return;
-	}
-
-	while(pCur->fs!=NULL)
-		pCur=pCur->fs;
-
-	while (pCur!=*pDel){
-		nbUpgrade(&pCur);
-		if (pCur->parent!=NULL)
-			pCur->nb=pCur->parent->nb;
-		else
-			pCur->nb=NULL;
-		pCur=pCur->parent;
-	}
-
-	if (pCur->parent != NULL)
-		pAdd = pCur->parent->fs;
-	else
-		pAdd = pCur;
-	while(pAdd->nb != *pDel && pAdd != *pDel){
-		pAdd = pAdd->nb;
-	}
-	if (pAdd != *pDel){
-		if (pCur->fs != NULL)
-			pAdd->nb = pCur->fs;
-		else 
-			pAdd->nb = pCur->nb;
-	}
-	else if (pCur->nb != NULL && pAdd->parent != NULL){
-		pAdd->parent->fs = pCur->nb;
-	}
-	else {
-		pTree->root = pCur->fs;
-	}
-	if (pCur->fs!=NULL)
-		pCur->fs->parent=pCur->parent;
-	if (pCur->parent==NULL)
-		pTree->root=pCur;
-}
+//void nbDelete(nbAddr *pDel, TreeSilsilah *pTree) {
+//    nbAddr pCur, pAdd, pTemp;
+//    pCur = *pDel;
+//
+//    if (pCur == pTree->root && pCur->fs == NULL) {
+//        pTree->root = NULL;
+//        return;
+//    }
+//
+//    while (pCur->fs != NULL)
+//        pCur = pCur->fs;
+//
+//    while (pCur != *pDel) {
+//        nbUpgrade(&pCur);
+//        if (pCur->parent != NULL)
+//            pCur->nb = pCur->parent->nb;
+//        else
+//            pCur->nb = NULL;
+//        pCur = pCur->parent;
+//    }
+//
+//    if (pCur->parent != NULL)
+//        pAdd = pCur->parent->fs;
+//    else
+//        pAdd = pCur;
+//
+//    while (pAdd->nb != *pDel && pAdd != *pDel) {
+//        pAdd = pAdd->nb;
+//    }
+//
+//    if (pAdd != *pDel) {
+//        if (pCur->fs != NULL && pCur->parent != NULL) {
+//            // Simpan anak-anak dari node yang dihapus dalam variabel sementara
+//            pTemp = pCur->fs;
+//            
+//            // Cari saudara parent (William)
+//            nbAddr parentSibling = pCur->parent->fs;
+//            
+//            // Cari node terakhir dari saudara parent (William)
+//            while (parentSibling->nb != NULL) {
+//                parentSibling = parentSibling->nb;
+//            }
+//            
+//            // Sambungkan anak-anak ke saudara parent (William) sebagai saudara kandung
+//            parentSibling->nb = pCur->fs;
+//
+//            // Ubah parent anak-anak yang dipindahkan
+//            nbAddr child = pTemp;
+//            while (child != NULL) {
+//                child->parent = pCur->parent;
+//                child = child->nb;
+//            }
+//        }
+//        
+//        // Hapus koneksi node yang akan dihapus dengan anak-anaknya
+//        pCur->fs = NULL;
+//    } else if (pCur->nb != NULL && pAdd->parent != NULL) {
+//        pAdd->parent->fs = pCur->nb;
+//    } else {
+//        pTree->root = pCur->fs;
+//    }
+//
+//    if (pCur->fs != NULL) {
+//        pCur->fs->parent = pCur->parent;
+//    }
+//
+//    if (pCur->parent == NULL)
+//        pTree->root = pCur;
+//}
 
 void opsiDeleteAnggotaKerajaan(nbAddr treeSilsilahTemp, TreeSilsilah treeTemp){
 	int bunuh;
-	TreeSilsilah Tree;
-	nbAddr src, deleteNode,PDel;
-	int pil;
-	char str[] = "\t";
 	nbType namaNode;
 	nbAddr srcNode;
-
-	printf("Pilih Opsi Tahta\n");
-	printf("\t1. Turunkan Tahta \n"); // delete raja
-	printf("\t2. Bunuh Anggota \n"); // delete anak
-	printf("\tPilih no : ");
-	scanf("%d", &bunuh);
-	switch (bunuh)
-	{
-	case 1:
+//	printf("Delete '1' '2' : ");
+//	scanf("%d", &bunuh);
+//	switch (bunuh)
+//	{
+//	case 1:	
 		printf("Masukkan nama : ");
 		scanf("%s", &namaNode);
 		if ((srcNode = Search(treeSilsilahTemp, namaNode)) != NULL)
@@ -161,26 +223,29 @@ void opsiDeleteAnggotaKerajaan(nbAddr treeSilsilahTemp, TreeSilsilah treeTemp){
 		{
 			printf("Data tidak ditemukan");
 		}
-		break;
-		case 2:
-		int i;
-			printSilsilah(Tree.root, str);
-		printf("Masukkan Saudara Raja     : ");
-		scanf("%s", &namaNode);
-		if ((srcNode = Search(treeSilsilahTemp, namaNode)) != NULL)
-		{
-			nbDelete(&srcNode, &treeTemp);
-			printf("Data telah dihapus");
-		}
-		else
-		{
-			printf("Data tidak ditemukan");
-		}
-		break;
-			
-		default:
-			printf("Pilihan tidak ada");
-		break;
-	} 
-
+//		break;
+//		case 2:
+//		int i;
+//		for(i=0;i<=nbDepth(treeSilsilahTemp);i++)
+//		{
+//			nbLevelOrder(treeSilsilahTemp,1,i);
+//		}
+//		printf("Masukkan Saudara Raja     : ");
+//		scanf("%s", &namaNode);
+//		if ((srcNode = Search(treeSilsilahTemp, namaNode)) != NULL)
+//		{
+//			nbDelete(&srcNode, &treeTemp);
+//			printf("Data telah dihapus");
+//		}
+//		else
+//		{
+//			printf("Data tidak ditemukan");
+//		}
+//		break;		
+//		default:
+//			printf("Pilihan tidak ada");
+//		break;
+//	}
 }
+
+

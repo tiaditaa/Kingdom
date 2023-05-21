@@ -158,19 +158,19 @@ void menuHitungAnak(nbAddr treeSilsilahTemp){
 	nbType parentTempInput;
 	int src;
 	printSilsilah;
-	printf("Masukkan nama orangtua : ");
+	printf("Masukkan nama parent : ");
 	fflush(stdin);
 	gets(parentTempInput);
 
 	// cek parent apakah ada
 	if (Search(treeSilsilahTemp, parentTempInput) == NULL)
 	{
-		printf("Orangtua tidak ditemukan");
+		printf("Parent tidak ditemukan");
 	}
 	src = hitungAnak(treeSilsilahTemp, parentTempInput);
 	if (src == NULL)
 	{
-		printf("%s tidak memiliki anak", parentTempInput);
+		printf("Parent %s tidak memiliki anak", parentTempInput);
 	}
 	printf("Jumlah anak dari %s yaitu : %d", parentTempInput, src);
 }

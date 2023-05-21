@@ -39,6 +39,7 @@ void Menu(){
 	printf("\t\t7. Peraturan\n");
 	printf("\t\t8. Tambah istri\n");
 	printf("\t\t9. Tambah Suami\n");
+	printf("\t\t10. History\n");
 	printf("\t\t0. Keluar\n");
 	printf("\n\t\tPilih: ");
 }
