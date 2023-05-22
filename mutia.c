@@ -1,6 +1,7 @@
 #include "header.h"
 #include "Body.h"
 #include "display.h"
+#define MAX_LENGTH 1000
 
 
 
@@ -175,3 +176,32 @@ void menuHitungAnak(nbAddr treeSilsilahTemp){
 	printf("Jumlah anak dari %s yaitu : %d", parentTempInput, src);
 }
 
+
+void readHistory() {
+    FILE *file = fopen("History.txt", "r");
+    char line[MAX_LENGTH];
+
+    if (file == NULL) {
+        printf("File tidak ditemukan.\n");
+        return;
+    }
+
+    while (fgets(line, MAX_LENGTH, file) != NULL) {
+        printf("\t\t%s", line);
+    }
+	getch();
+    fclose(file);
+}
+
+void writeHistory(char *entry) {
+    FILE *file = fopen("History.txt", "r");
+
+    if (file == NULL) {
+        printf("File tidak ditemukan.\n");
+        return;
+    }
+
+    fprintf(file, "%s", entry);
+
+    fclose(file);
+}
