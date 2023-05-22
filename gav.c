@@ -86,6 +86,31 @@ void nbUpgrade(nbAddr *root)
 	}
 }
 
+
+void opsiDeleteAnggotaKerajaan(nbAddr treeSilsilahTemp, TreeSilsilah treeTemp){
+	int bunuh;
+	nbType namaNode;
+	nbAddr srcNode;
+		printf("Masukkan nama : ");
+		scanf("%s", &namaNode);
+		if ((srcNode = Search(treeSilsilahTemp, namaNode)) != NULL)
+		{
+			nbDelete2(&srcNode, &treeTemp);
+			printf("%s telah diturunkan tahtanya", namaNode);                            
+		{
+			printf("Data tidak ditemukan");
+		}
+}
+
+   
+}
+
+//	printf("Delete '1' '2' : ");
+//	scanf("%d", &bunuh);
+//	switch (bunuh)
+//	{
+//	case 1:	an nama : ");
+
 //Delete Tengah
 //void nbDelete(nbAddr *pDel, TreeSilsilah *pTree){
 //	nbAddr pCur,pAdd,pTemp;
@@ -203,27 +228,6 @@ void nbUpgrade(nbAddr *root)
 //        pTree->root = pCur;
 //}
 
-void opsiDeleteAnggotaKerajaan(nbAddr treeSilsilahTemp, TreeSilsilah treeTemp){
-	int bunuh;
-	nbType namaNode;
-	nbAddr srcNode;
-		printf("Masukkan nama : ");
-//	printf("Delete '1' '2' : ");
-//	scanf("%d", &bunuh);
-//	switch (bunuh)
-//	{
-//	case 1:	an nama : ");
-		scanf("%s", &namaNode);
-		if ((srcNode = Search(treeSilsilahTemp, namaNode)) != NULL)
-		{
-			nbDelete2(&srcNode, &treeTemp);
-			printf("%s telah diturunkan tahtanya", namaNode);                            
-		{
-			printf("Data tidak ditemukan");
-		}
-}
-
-   
 //		break;
 //		case 2:
 //		int i;
@@ -247,4 +251,3 @@ void opsiDeleteAnggotaKerajaan(nbAddr treeSilsilahTemp, TreeSilsilah treeTemp){
 //			printf("Pilihan tidak ada");
 //		break;
 //	}
-}

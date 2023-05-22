@@ -109,8 +109,10 @@ int main()
 			system("cls");
 			break;	
 		case 10:
-			printf("Family History:\n");
-    		printHistory(his.root, "");	
+			printf("\n\t\tFamily History:\n");
+    		printHistory(his.root, "");
+			getch();
+			break;	
 		default:
 			printf("Inputan Salah !!");
 			getch();

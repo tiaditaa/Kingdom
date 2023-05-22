@@ -10,7 +10,6 @@ bool IsSilsilahEmpty(nbAddr tr) {
 }
 
 
-
 void InsertSilsilah(nbAddr *tr)
 {
 	TreeSilsilah tRoot;
@@ -426,9 +425,6 @@ void printHistory(nbAddr his, char tab[])
 	strcat(tempTab, "-");
 	if (his != NULL)
 	{
-		// root node jangan di tampilkan
-//		if (strcmp(nama(tr), "") != 0)
-//		{
 			if(status(his) !=NULL)
 			{
 				printf("\t %s%s (%s) \n", tab, nama(his), nama(pasangan(his)));
@@ -441,12 +437,12 @@ void printHistory(nbAddr his, char tab[])
 				printSilsilah(his->nb, tab);	
 			}
 			
+		}
+
+}
 //	} else (strcmp(nama(tr), "history") !=0);
 //		{ printf("\t %s%s \n", tab, tr->nama); 
 //					printSilsilah(tr->fs, tempTab);
 //				printSilsilah(tr->nb, tab);	
 //			
 //		}
-		}
-
-}

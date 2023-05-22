@@ -42,28 +42,19 @@ void printSilsilah(nbAddr tr, char tab[])
 	strcat(tempTab, "-");
 	if (tr != NULL)
 	{
-//		// root node jangan di tampilkan
-//		if (strcmp(nama(tr), "root") != 0)
-//		{
+
 			if(status(tr) !=NULL)
 			{
-				printf("\t %s%s (%s) \n", tab, nama(tr), nama(pasangan(tr)));
+				printf("\t\t %s%s (%s) \n", tab, nama(tr), nama(pasangan(tr)));
 				printSilsilah(tr->fs, tempTab);
 				printSilsilah(tr->nb, tab);
 				
 			} else 
-			{ printf("\t %s%s \n", tab, tr->nama); 
+			{ printf("\t\t %s%s \n", tab, tr->nama); 
 					printSilsilah(tr->fs, tempTab);
 				printSilsilah(tr->nb, tab);	
 			}
-			
-//	} else (strcmp(nama(tr), "history") !=0);
-//		{ printf("\t %s%s \n", tab, tr->nama); 
-//					printSilsilah(tr->fs, tempTab);
-//				printSilsilah(tr->nb, tab);	
-//			
-//		}
-		}
+					}
 
 }
 
@@ -96,74 +87,6 @@ TNBTree *SearchNode(TreeSilsilah tree, nbType nama)
 	return NULL;
 }
 
-// Delete Raja and Upgrade
-//void nbDelete2(nbAddr *pDel, TreeSilsilah *pTree){
-//	nbAddr pCur;
-//	pCur = *pDel;
-//
-//	if (pCur == pTree->root && pCur->fs==NULL){
-//		pTree->root=NULL;
-//		return;
-//	}
-//
-//	while(pCur->fs != NULL)
-//		pCur=pCur->fs;
-//
-//	while (pCur!=*pDel){
-//		nbUpgrade(&pCur);
-//		if (pCur->parent!=NULL)
-//			pCur->nb=pCur->parent->nb;
-//		else
-//			pCur->nb=NULL;
-//		pCur=pCur->parent;
-//	}
-//
-//	if (pCur->parent!=NULL)
-//		pCur->parent->fs=pCur->fs;
-//	if (pCur->fs!=NULL)
-//		pCur->fs->parent=pCur->parent;
-//	if (pCur->parent==NULL)
-//		pTree->root=pCur;
-//	
-//}
-
-//void nbDelete2(nbAddr *node, TreeSilsilah *tree) {
-//    if (*node == NULL) {
-//        return;
-//    }
-//
-//    nbAddr parent = (*node)->parent;
-//    nbAddr child = (*node)->fs;
-//
-//    if (parent != NULL) {
-//        if (parent->fs == *node) {
-//            parent->fs = child;
-//        } else {
-//            nbAddr prevSibling = parent->fs;
-//            while (prevSibling != NULL && prevSibling->nb != *node) {
-//                prevSibling = prevSibling->nb;
-//            }
-//            if (prevSibling != NULL) {
-//                prevSibling->nb = child;
-//            }
-//        }
-//    } else {
-//        tree->root = child;
-//        if (child != NULL) {
-//            child->parent = NULL;
-//        }
-//    }
-//
-//    // Update parent for the children of the deleted node
-//    nbAddr currChild = child;
-//    while (currChild != NULL) {
-//        currChild->parent = parent;
-//        currChild = currChild->nb;
-//    }
-//
-//    free(*node);
-//    *node = NULL;
-//}
 
 void nbDelete2(nbAddr *node, TreeSilsilah *tree) {
     if (*node == NULL) {
@@ -259,3 +182,72 @@ void writeHistory(char *entry) {
 
     fclose(file);
 }
+
+// Delete Raja and Upgrade
+//void nbDelete2(nbAddr *pDel, TreeSilsilah *pTree){
+//	nbAddr pCur;
+//	pCur = *pDel;
+//
+//	if (pCur == pTree->root && pCur->fs==NULL){
+//		pTree->root=NULL;
+//		return;
+//	}
+//
+//	while(pCur->fs != NULL)
+//		pCur=pCur->fs;
+//
+//	while (pCur!=*pDel){
+//		nbUpgrade(&pCur);
+//		if (pCur->parent!=NULL)
+//			pCur->nb=pCur->parent->nb;
+//		else
+//			pCur->nb=NULL;
+//		pCur=pCur->parent;
+//	}
+//
+//	if (pCur->parent!=NULL)
+//		pCur->parent->fs=pCur->fs;
+//	if (pCur->fs!=NULL)
+//		pCur->fs->parent=pCur->parent;
+//	if (pCur->parent==NULL)
+//		pTree->root=pCur;
+//	
+//}
+
+//void nbDelete2(nbAddr *node, TreeSilsilah *tree) {
+//    if (*node == NULL) {
+//        return;
+//    }
+//
+//    nbAddr parent = (*node)->parent;
+//    nbAddr child = (*node)->fs;
+//
+//    if (parent != NULL) {
+//        if (parent->fs == *node) {
+//            parent->fs = child;
+//        } else {
+//            nbAddr prevSibling = parent->fs;
+//            while (prevSibling != NULL && prevSibling->nb != *node) {
+//                prevSibling = prevSibling->nb;
+//            }
+//            if (prevSibling != NULL) {
+//                prevSibling->nb = child;
+//            }
+//        }
+//    } else {
+//        tree->root = child;
+//        if (child != NULL) {
+//            child->parent = NULL;
+//        }
+//    }
+//
+//    // Update parent for the children of the deleted node
+//    nbAddr currChild = child;
+//    while (currChild != NULL) {
+//        currChild->parent = parent;
+//        currChild = currChild->nb;
+//    }
+//
+//    free(*node);
+//    *node = NULL;
+//}
