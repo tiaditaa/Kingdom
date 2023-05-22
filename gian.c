@@ -417,3 +417,36 @@ void InsertHusband(nbAddr tr) {
 		}
 	}   
 }
+
+void printHistory(nbAddr his, char tab[])
+{
+	int i = 1;
+	char tempTab[255];
+	strcpy(tempTab, tab);
+	strcat(tempTab, "-");
+	if (his != NULL)
+	{
+		// root node jangan di tampilkan
+//		if (strcmp(nama(tr), "") != 0)
+//		{
+			if(status(his) !=NULL)
+			{
+				printf("\t %s%s (%s) \n", tab, nama(his), nama(pasangan(his)));
+				printSilsilah(his->fs, tempTab);
+				printSilsilah(his->nb, tab);
+				
+			} else 
+			{ printf("\t %s%s \n", tab, his->nama); 
+					printSilsilah(his->fs, tempTab);
+				printSilsilah(his->nb, tab);	
+			}
+			
+//	} else (strcmp(nama(tr), "history") !=0);
+//		{ printf("\t %s%s \n", tab, tr->nama); 
+//					printSilsilah(tr->fs, tempTab);
+//				printSilsilah(tr->nb, tab);	
+//			
+//		}
+		}
+
+}

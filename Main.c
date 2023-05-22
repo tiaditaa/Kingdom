@@ -5,13 +5,14 @@ int main()
 {
 
 	
-	TreeSilsilah Tree;
+	TreeSilsilah Tree, his;
 	nbAddr src, deleteNode,PDel;
 	int pil;
 	char str[] = "\t";
 	
 	// add data ke node secara statis 
 	createNode(&Tree);
+	
 	insertNode(&Tree, NULL, "", 'P', 80); // insert ini dinyatakan sebagai root
 	insertNode(&Tree, Search(Tree.root, ""), "Charles", 'L', 74); // insert ini dinyatakan sebagai Raja
 	insertNode(&Tree, Search(Tree.root, "Charles"), "William", 'L', 40); 
@@ -22,6 +23,14 @@ int main()
 	insertNode(&Tree, Search(Tree.root, "Harry"), "Archie", 'L', 4);
 //	insertNode(&Tree, Search(Tree.root, "Harry"), "Beatrice", 'p', 29);
 //	insertNode(&Tree, Search(Tree.root, "George"), "Eugenie", 'P', 28);
+	
+	createNode(&his);
+	insertNode(&his, NULL, "", 'L', 999); // insert ini dinyatakan sebagai root
+	insertNode(&his, Search(his.root, ""), "Victoria", 'P', 960);
+	insertNode(&his, Search(his.root, "Victoria"), "Edward", 'L', 920);
+	insertNode(&his, Search(his.root, "Edward"), "George V", 'L', 890);
+	insertNode(&his, Search(his.root, "George V"), "George VI", 'L', 850);
+	insertNode(&his, Search(his.root, "George VI"), "Ellizabeth II", 'P', 700);
 
 	for (;;)
 	{
@@ -65,7 +74,7 @@ int main()
 				getch();
 				break;
 			}
-			printSilsilah(Tree.root, str);
+			printSilsilah(Tree.root, "");
 			opsiDeleteAnggotaKerajaan(Tree.root, Tree);
 			getch();
 			break;
@@ -100,8 +109,8 @@ int main()
 			system("cls");
 			break;	
 		case 10:
-			readHistory();
-                break;		
+			printf("Family History:\n");
+    		printHistory(his.root, "");	
 		default:
 			printf("Inputan Salah !!");
 			getch();

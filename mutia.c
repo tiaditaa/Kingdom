@@ -1,7 +1,11 @@
 #include "header.h"
 #include "Body.h"
 #include "display.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
 
+#define MAX_LENGTH 1000
 
 
 TNBTree* Search(nbAddr tr, nbType nama) {
@@ -38,7 +42,7 @@ void printSilsilah(nbAddr tr, char tab[])
 	strcat(tempTab, "-");
 	if (tr != NULL)
 	{
-		// root node jangan di tampilkan
+//		// root node jangan di tampilkan
 //		if (strcmp(nama(tr), "root") != 0)
 //		{
 			if(status(tr) !=NULL)
@@ -53,9 +57,17 @@ void printSilsilah(nbAddr tr, char tab[])
 				printSilsilah(tr->nb, tab);	
 			}
 			
-	}
+//	} else (strcmp(nama(tr), "history") !=0);
+//		{ printf("\t %s%s \n", tab, tr->nama); 
+//					printSilsilah(tr->fs, tempTab);
+//				printSilsilah(tr->nb, tab);	
+//			
+//		}
 		}
 
+}
+
+//}
 
 TNBTree *SearchNode(TreeSilsilah tree, nbType nama)
 {
@@ -115,6 +127,44 @@ TNBTree *SearchNode(TreeSilsilah tree, nbType nama)
 //	
 //}
 
+//void nbDelete2(nbAddr *node, TreeSilsilah *tree) {
+//    if (*node == NULL) {
+//        return;
+//    }
+//
+//    nbAddr parent = (*node)->parent;
+//    nbAddr child = (*node)->fs;
+//
+//    if (parent != NULL) {
+//        if (parent->fs == *node) {
+//            parent->fs = child;
+//        } else {
+//            nbAddr prevSibling = parent->fs;
+//            while (prevSibling != NULL && prevSibling->nb != *node) {
+//                prevSibling = prevSibling->nb;
+//            }
+//            if (prevSibling != NULL) {
+//                prevSibling->nb = child;
+//            }
+//        }
+//    } else {
+//        tree->root = child;
+//        if (child != NULL) {
+//            child->parent = NULL;
+//        }
+//    }
+//
+//    // Update parent for the children of the deleted node
+//    nbAddr currChild = child;
+//    while (currChild != NULL) {
+//        currChild->parent = parent;
+//        currChild = currChild->nb;
+//    }
+//
+//    free(*node);
+//    *node = NULL;
+//}
+
 void nbDelete2(nbAddr *node, TreeSilsilah *tree) {
     if (*node == NULL) {
         return;
@@ -151,7 +201,11 @@ void nbDelete2(nbAddr *node, TreeSilsilah *tree) {
 
     free(*node);
     *node = NULL;
+    
 }
+
+
+
 
 
 void menuHitungAnak(nbAddr treeSilsilahTemp){
@@ -175,3 +229,33 @@ void menuHitungAnak(nbAddr treeSilsilahTemp){
 	printf("Jumlah anak dari %s yaitu : %d", parentTempInput, src);
 }
 
+void readHistory() {
+    FILE *file = fopen("History.txt", "r");
+    char line[MAX_LENGTH];
+
+    if (file == NULL) {
+        printf("File tidak ditemukan.\n");
+        return;
+    }
+
+    while (fgets(line, MAX_LENGTH, file) != NULL) {
+        printf("\t\t%s", line);
+    }
+	getch();
+    fclose(file);
+}
+
+void writeHistory(char *entry) {
+//    char *entry;
+	
+	FILE *file = fopen("History.txt", "r");
+
+    if (file == NULL) {
+        printf("File tidak ditemukan.\n");
+        return;
+    }
+
+    fprintf(file, "%s", entry);
+
+    fclose(file);
+}

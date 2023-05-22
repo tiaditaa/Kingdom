@@ -26,5 +26,5 @@ void opsiDeleteAnggotaKerajaan(nbAddr treeSilsilahTemp, TreeSilsilah tree); // u
 void detailAnggota(nbAddr tr); // untuk menampilkan detail anggota kerajaan
 void readHistory();
 void writeHistory(char *entry);
-
+void printHistory(nbAddr tr, char tab[]);
 #endif
