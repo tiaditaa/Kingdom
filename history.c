@@ -21,7 +21,7 @@ void readHistory() {
 }
 
 void writeHistory(char *entry) {
-    FILE *file = fopen("History.txt", "a");
+    FILE *file = fopen("History.txt", "r");
 
     if (file == NULL) {
         printf("File tidak ditemukan.\n");

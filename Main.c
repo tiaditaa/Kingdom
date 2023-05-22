@@ -12,8 +12,8 @@ int main()
 	
 	// add data ke node secara statis 
 	createNode(&Tree);
-	insertNode(&Tree, NULL, "", 'P', 80); // nb insert ini dinyatakan sebagai root
-	insertNode(&Tree, Search(Tree.root, ""), "Charles", 'L', 74); // nb insert ini dinyatakan sebagai Raja
+	insertNode(&Tree, NULL, "", 'P', 80); // insert ini dinyatakan sebagai root
+	insertNode(&Tree, Search(Tree.root, ""), "Charles", 'L', 74); // insert ini dinyatakan sebagai Raja
 	insertNode(&Tree, Search(Tree.root, "Charles"), "William", 'L', 40); 
 	insertNode(&Tree, Search(Tree.root, "Charles"), "Harry", 'L', 38);
 	insertNode(&Tree, Search(Tree.root, "William"),  "George", 'L', 9);
