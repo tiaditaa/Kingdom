@@ -1,9 +1,13 @@
 #include "header.h"
 #include "Body.h"
 #include "display.h"
+<<<<<<< HEAD
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
+=======
+#define MAX_LENGTH 1000
+>>>>>>> 3d57a7d41af5b9267b1c607a34a385e879ab9d0c
 
 #define MAX_LENGTH 1000
 
@@ -229,6 +233,10 @@ void menuHitungAnak(nbAddr treeSilsilahTemp){
 	printf("Jumlah anak dari %s yaitu : %d", parentTempInput, src);
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3d57a7d41af5b9267b1c607a34a385e879ab9d0c
 void readHistory() {
     FILE *file = fopen("History.txt", "r");
     char line[MAX_LENGTH];
@@ -246,9 +254,13 @@ void readHistory() {
 }
 
 void writeHistory(char *entry) {
+<<<<<<< HEAD
 //    char *entry;
 	
 	FILE *file = fopen("History.txt", "r");
+=======
+    FILE *file = fopen("History.txt", "r");
+>>>>>>> 3d57a7d41af5b9267b1c607a34a385e879ab9d0c
 
     if (file == NULL) {
         printf("File tidak ditemukan.\n");
